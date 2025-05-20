@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    min-height: 100vh;
+    background-color: #fae837;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+h2 {
+    margin-bottom: 20px;
+}
+.board {
+    width: 350px;
+    height: 350px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 15px;
+}
+.board .hole {
+    background-color: #784421;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+}
+.hole img {
+    position: absolute;
+    width: 70%;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    animation: animate .3s linear forwards;
+}
+@keyframes animate {
+    0%{
+        bottom: -100%;
+    }
+    100% {
+        bottom: 0;
+    }
+}
+.cursor {
+    height: 70px;
+    width: 70px;
+    background: url('hammer.png');
+    background-size: 100%;
+    position: absolute;
+    transform: translate(-15%,-15%);
+    pointer-events: none;
+}
+.cursor.active {
+    transform: translate(-15%, -15%) rotate(-30deg);
+}
